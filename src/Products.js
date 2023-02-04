@@ -1,1 +1,6 @@
-export const PRODUCTSURL ="https://fakestoreapi.com/products"
+
+export const PRODUCTSURL = "https://fakestoreapi.com/products"
+
+
+//GET ALL PRODUCTS 
+

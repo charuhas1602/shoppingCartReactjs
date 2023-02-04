@@ -1,28 +1,35 @@
 import React, { useEffect, useState } from 'react'
-// import { PRODUCTS } from '../Products'
+import { PRODUCTSURL } from '../Products'
 // import axios from 'axios';
 import ProductCard from '../components/Card';
 import Shimmer from '../components/Shimmer';
-
+// import { CloudFog } from 'phosphor-react';
 
 const Shop = () => {
    const [products, setProducts] = useState()
+   const [filteredProducts, setFilteredProducts] = useState()
+   const [searchText, setSearchText] = useState("")
+   // const [productList, setProductList] = useState()
 
-   useEffect(() => {
-      getProducts()
-   }, [])
+   // Getting all product list
    async function getProducts() {
-      // let cart = {}
-      const res = await fetch('https://fakestoreapi.com/products');
-      const data = await res.json()
+      const res = await fetch(PRODUCTSURL);
+      const data = await res.json();
       setProducts(data)
-      // for (let i = 0; i < data.length; i++) {
-      //    cart[data[i].id] = 0;
-      // }
-      // console.log(cart)
+      setFilteredProducts(data)
+   }
+   useEffect(() => getProducts(), [])
+
+   const filterProductByName = (name) => {
+      // console.log(name)
+      let productName = name.toLowerCase();
+      const filtered = products.filter((product) => {
+         return product?.title.toLowerCase().includes(productName)
+      })
+      setFilteredProducts([...filtered])
    }
 
-   console.log(products)
+   // console.log(products)
    if (!products) {
       return <Shimmer></Shimmer>
    }
@@ -30,8 +37,14 @@ const Shop = () => {
       <div>
          <h1 className='title text-center mb-5 text-danger'>My Shop</h1>
          <div className="container">
+            <div className="container">
+               <div className="row w-50 mb-4 d-flex justify-start ">
+                  <input type="text" onChange={(e) => setSearchText(e.target.value)} placeholder="Search By product Name" />
+                  <button className='btn-success ' onClick={() => filterProductByName(searchText)}>Search product</button>
+               </div>
+            </div>
             <div className="row">
-               {products.map((el) => {
+               {filteredProducts.map((el) => {
                   return (
                      <ProductCard item={el} key={el.id} />
                   )

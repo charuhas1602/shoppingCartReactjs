@@ -1,10 +1,15 @@
 import React from "react";
-import { ShimmerThumbnail } from "react-shimmer-effects";
+import { ShimmerSimpleGallery } from "react-shimmer-effects";
 
 class Shimmer extends React.Component {
    render() {
       return <>
-         <ShimmerThumbnail height={250} rounded /><ShimmerThumbnail height={250} rounded /><ShimmerThumbnail height={250} rounded /><ShimmerThumbnail height={250} rounded /><ShimmerThumbnail height={250} rounded /><ShimmerThumbnail height={250} rounded /><ShimmerThumbnail height={250} rounded /><ShimmerThumbnail height={250} rounded /><ShimmerThumbnail height={250} rounded />
+         <div className="container">
+            <ShimmerSimpleGallery card imageHeight={300} caption />
+            <ShimmerSimpleGallery card imageHeight={300} caption />
+            <ShimmerSimpleGallery card imageHeight={300} caption />
+            <ShimmerSimpleGallery card imageHeight={300} caption />
+         </div>
       </>;
    }
 }
