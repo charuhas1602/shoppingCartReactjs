@@ -35,7 +35,7 @@ const Shop = () => {
    }
    return (
       <div>
-         <h1 className='title text-center mb-5 text-danger'>My Shop</h1>
+         <h1 className='title text-center my-4 font-medium text-gray-500 text-6xl lett subpixel-antialiased '>My Shop</h1>
          <div className="container">
             <div className="container">
                <div className="row mb-4 d-flex justify-start ">
@@ -51,11 +51,13 @@ const Shop = () => {
                </div>
             </div>
             <div className="row">
-               {filteredProducts.map((el) => {
-                  return (
-                     <ProductCard item={el} key={el.id} />
-                  )
-               })}
+               <div className="col-12 flex justify-center flex-wrap">
+                  {filteredProducts.map((el) => {
+                     return (
+                        <ProductCard item={el} key={el.id} />
+                     )
+                  })}
+               </div>
             </div>
          </div>
       </div>

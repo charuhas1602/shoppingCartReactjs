@@ -14,9 +14,9 @@ const ProductCard = (props) => {
    // console.log(cartItem)
    return (
       <>
-         <div className="col-md-3 mb-5 ">
-            <Link to="/">
-               <Card style={{ width: '17rem', height: "420px" }} className="border border-3 bg-slate-100">
+         <div className="col-md-6 col-lg-3 mb-5 ">
+            <Link to="/" >
+               <Card style={{ width: '17rem', height: "420px" }} className="shadow-md border border-3 bg-pink-50 text-black">
                   <Card.Img variant="top" src={image} className="img-fluid shadow-md" style={{ height: "220px" }} />
                   <Card.Body className='d-flex flex-column justify-content-end pt-0'>
                      <span className='m-0 fw-bold'><small>{title}</small></span>
@@ -31,7 +31,6 @@ const ProductCard = (props) => {
                      </div>
                   </Card.Body>
                </Card>
-
             </Link>
          </div>
       </>
