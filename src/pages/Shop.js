@@ -18,7 +18,7 @@ const Shop = () => {
       setProducts(data)
       setFilteredProducts(data)
    }
-   useEffect(() => getProducts(), [])
+   useEffect(() => { getProducts() }, [])
 
    const filterProductByName = (name) => {
       // console.log(name)
@@ -38,9 +38,16 @@ const Shop = () => {
          <h1 className='title text-center mb-5 text-danger'>My Shop</h1>
          <div className="container">
             <div className="container">
-               <div className="row w-50 mb-4 d-flex justify-start ">
-                  <input type="text" onChange={(e) => setSearchText(e.target.value)} placeholder="Search By product Name" />
-                  <button className='btn-success ' onClick={() => filterProductByName(searchText)}>Search product</button>
+               <div className="row mb-4 d-flex justify-start ">
+                  <div className="flex">
+                     <div className="searchBox px-3">
+                        <input className='p-2 bg-orange-50 border rounded-lg' type="text" onChange={(e) => setSearchText(e.target.value)} placeholder="Search By product Name" />
+
+                     </div>
+                     <div className="search-box">
+                        <button className='btn btn-outline-dark hover:bg-red-100' onClick={() => filterProductByName(searchText)}>Search product</button>
+                     </div>
+                  </div>
                </div>
             </div>
             <div className="row">

@@ -57,17 +57,28 @@ const ShopContextProvider = (props) => {
       for (let i in cartItem) {
          if (cartItem[i] > 0) {
             let itemInfo = products.find(product => product.id === Number(i))
-            total += cartItem[i] * itemInfo.price
+            total += cartItem[i] * itemInfo.price;
          }
       }
-      return total
+      return total.toFixed(2);
+   }
+   const getTotalCartItems = () => {
+      let totalItems=0;
+      for (let i in cartItem) {
+         if (cartItem[i] > 0) {
+            // let itemInfo = products.find(product => product.id === Number(i))
+            totalItems +=cartItem[i];
+         }
+      }
+      return totalItems;
    }
    const contextValue = {
-      cartItem, removeFromCart, addToCart, updateCartItem, getTotalCartAmoutnt
+      cartItem, removeFromCart, addToCart, updateCartItem, getTotalCartAmoutnt, getTotalCartItems
    }
 
    // console.log("Updated cart", cartItem)
 
+   shopcontext.displayName = "shopcontext"
    return (
       <shopcontext.Provider value={contextValue}>
          {props.children}
