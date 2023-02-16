@@ -45,7 +45,9 @@ const Shop = () => {
 
                      </div>
                      <div className="search-box">
-                        <button className='btn btn-outline-dark hover:bg-red-100' onClick={() => filterProductByName(searchText)}>Search product</button>
+                        <button class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" onClick={() => filterProductByName(searchText)}>
+                           Search product
+                        </button>
                      </div>
                   </div>
                </div>

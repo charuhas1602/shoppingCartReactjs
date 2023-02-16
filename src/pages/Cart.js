@@ -36,7 +36,7 @@ const Cart = () => {
       <div>
          <div className="container">
             <div className="row py-4">
-               {totolAmount ? (<h3 className='text-left font-mono font-extrabold italic'>Cart</h3>) : (<h3 className='text-left font-mono font-extrabold italic'>Cart is Empty</h3>)}
+               {totolAmount > 0 ? (<h3 className='text-left font-mono font-extrabold italic'>Cart</h3>) : (<h3 className='text-left font-mono font-extrabold italic'>Cart is Empty</h3>)}
             </div>
             <div className="row">
                <div className="col-md-10">
@@ -52,12 +52,13 @@ const Cart = () => {
                   <div className="container">
 
                      <div className="row d-flex flex-col justify-between">
-                        {totolAmount ? (
+                        {totolAmount > 0 ? (
                            <>
                               <h4>Total:-{totolAmount}</h4>
                               <button className='btn btn-secondary btn-sm btn-dark py-lg-2 my-3'>Checkout</button>
                            </>
                         ) : <>
+                           <div></div>
                         </>}
                         <Link to="/"><button className='btn btn-secondary btn-sm btn-dark py-2 px-2 my-3'>Continue Shopping</button></Link>
                      </div>
